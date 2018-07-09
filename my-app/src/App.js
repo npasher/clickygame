@@ -12,7 +12,6 @@ class App extends Component{
     squares,
     score:0,
     topScore:0,
-    // message:"Click square to begin.",
     clicked:[],
   };
 
