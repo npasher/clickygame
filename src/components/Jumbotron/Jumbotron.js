@@ -10,7 +10,7 @@ const Jumbotron=props=>(
       <p className="lead">
         {`Click an image, only once, to earn points.`}
         <br></br>
-        {`Click any image to begin.`}
+        {`Click any square to begin.`}
       </p>
     </div>
   </div>
