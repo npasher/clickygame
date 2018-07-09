@@ -1,0 +1,24 @@
+.navbar{
+  /* background-color:#000000;     */
+  color:#ff4500;
+  min-height:65px;
+  position:fixed;
+  width:100%;
+  /* -webkit-box-shadow:0 14px 28px #00000040, 0 10px 10px #00000038;
+  box-shadow:0 14px 28px #00000040, 0 10px 10px #00000038; */
+  color:#ff4500;
+  /* font-size:calc(10px + 14 * (100vw - 320px)/ 800); */
+  z-index:99;
+  white-space:nowrap;
+}
+.navbar li{
+  display:inline-block;
+  padding:26px 0;
+  width:33.3%;
+  text-align:center;
+}
+.navbar a{
+  text-decoration:none;
+  color:#4682b4;
+  /* font-weight:900; */
+}

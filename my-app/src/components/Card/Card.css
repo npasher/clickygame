@@ -1,0 +1,26 @@
+.card{
+  border:4px solid;
+  /* border-radius:2px; */
+  width:200px;
+  height:200px;
+  margin:.5rem;
+  position:relative;
+  box-shadow:4px 4px 10px #383838;
+  transition:all .2s ease-in-out;
+}
+.card>.img-container{
+  height:100%;
+  overflow:hidden;
+  /* background:#ffffff; */
+}
+.card >.img-container>img{
+  height:100%;
+}
+.card:hover{
+  box-shadow:8px 8px 20px #383838;
+  transform:scale(1.1);
+  cursor:pointer;
+}
+.card:active{
+  transform:translate(1px,1px);
+}

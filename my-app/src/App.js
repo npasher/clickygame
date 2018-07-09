@@ -1,19 +1,65 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React,{Component} from 'react';
+import Navbar from "./components/Navbar";
+import Jumbotron from "./components/Jumbotron";
+import Card from "./components/Card";
+import Wrapper from "./components/Wrapper";
+import Footer from "./components/Footer";
+import squares from "./squares.json";
 import './App.css';
 
-class App extends Component {
+class App extends Component{
+  state={
+    squares,
+    score:0,
+    topScore:0,
+    // message:"Click square to begin.",
+    clicked:[],
+  };
+
+  reset=()=>{
+    this.setState({
+      score:0,
+      clicked:[]
+    });
+  }
+
+  handleClick=id=>{
+    if (this.state.clicked.indexOf(id) === -1){
+      console.log(this.state.clicked)
+      this.setState({ 
+        squares:squares.sort(function(a, b){return 0.5 - Math.random()}),
+        score:this.state.score + 1,
+        topScore:Math.max(this.state.topScore,this.state.score + 1),
+        message:"Correct Guess",
+        clicked:this.state.clicked.concat(id) 
+      });
+    }else{
+      this.setState({ 
+        squares:squares.sort(function(a, b){return 0.5 - Math.random()}),
+        message:"Wrong guess, try again"
+      });
+      return this.reset();
+    }
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Wrapper>
+        <Navbar score={this.state.score} topScore={this.state.topScore}>
+          {this.state.message}
+        </Navbar>
+        <Jumbotron />        
+          {this.state.squares.map(characters=>(
+          <Card
+            handleClick={this.handleClick}
+            id={characters.id}
+            key={characters.id}
+            name={characters.name}
+            image={characters.image}
+          />
+          ))}
+        <Footer/>
+      </Wrapper>
     );
   }
 }
