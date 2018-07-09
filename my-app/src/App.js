@@ -29,13 +29,13 @@ class App extends Component{
         squares:squares.sort(function(a, b){return 0.5 - Math.random()}),
         score:this.state.score + 1,
         topScore:Math.max(this.state.topScore,this.state.score + 1),
-        message:"Correct Guess",
+        message:"Correct!",
         clicked:this.state.clicked.concat(id) 
       });
     }else{
       this.setState({ 
         squares:squares.sort(function(a, b){return 0.5 - Math.random()}),
-        message:"Wrong guess, try again"
+        message:"Incorrect!"
       });
       return this.reset();
     }
